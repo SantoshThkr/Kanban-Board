@@ -1,0 +1,26 @@
+{
+  "name": "kanban-board",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simple Kanban board built with the MERN stack",
+  "main": "server/server.js",
+  "scripts": {
+    "server": "npm start --prefix server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "npm test --prefix server",
+    "install-all": "npm install && npm install --prefix server && npm install --prefix client"
+  },
+  "keywords": [
+    "mern",
+    "kanban",
+    "react",
+    "express",
+    "mongodb"
+  ],
+  "author": "Santosh Thakur",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
