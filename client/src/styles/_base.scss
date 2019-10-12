@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: $grey-light;
+  color: $text;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.app-header {
+  background: $navy;
+  color: $white;
+  padding: 16px;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    font-size: 22px;
+  }
+}
