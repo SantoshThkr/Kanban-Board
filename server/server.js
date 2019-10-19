@@ -1,19 +1,17 @@
-const express = require('express');
-const cors = require('cors');
+require('dotenv').config();
 
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-
-app.get('/api/health', function (req, res) {
-  res.json({ status: 'ok', message: 'Kanban API is running' });
-});
+const app = require('./app');
+const connectDB = require('./config/db');
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, function () {
-  console.log('Server running on port ' + PORT);
-});
-
-module.exports = app;
+connectDB()
+  .then(function () {
+    app.listen(PORT, function () {
+      console.log('Server running on port ' + PORT);
+    });
+  })
+  .catch(function (err) {
+    console.error('Failed to start server:', err.message);
+    process.exit(1);
+  });
