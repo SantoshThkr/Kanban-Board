@@ -55,3 +55,15 @@ exports.login = async function (req, res, next) {
     next(err);
   }
 };
+
+/**
+ * GET /api/auth/me
+ * Return the logged in user. Requires a valid token.
+ */
+exports.getMe = async function (req, res, next) {
+  try {
+    res.json({ user: req.user.toJSON() });
+  } catch (err) {
+    next(err);
+  }
+};
