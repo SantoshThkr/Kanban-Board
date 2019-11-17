@@ -1,4 +1,5 @@
 const Board = require('../models/Board');
+const Task = require('../models/Task');
 
 /**
  * Find a board and make sure it belongs to the logged in user.
@@ -94,7 +95,9 @@ exports.deleteBoard = async function (req, res, next) {
     const board = await findOwnedBoard(req.params.id, req.user._id, res);
     if (!board) return;
 
+    await Task.deleteMany({ board: board._id });
     await board.deleteOne();
+
     res.json({ message: 'Board removed', id: req.params.id });
   } catch (err) {
     next(err);

@@ -4,6 +4,7 @@ const { body } = require('express-validator');
 const protect = require('../middleware/auth');
 const validate = require('../middleware/validate');
 const boardController = require('../controllers/boardController');
+const { boardTaskRouter } = require('./tasks');
 
 const router = express.Router();
 
@@ -29,5 +30,8 @@ router
   .get(boardController.getBoard)
   .put(boardValidators, validate, boardController.updateBoard)
   .delete(boardController.deleteBoard);
+
+// /api/boards/:boardId/tasks
+router.use('/:boardId/tasks', boardTaskRouter);
 
 module.exports = router;

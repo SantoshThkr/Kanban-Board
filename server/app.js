@@ -3,6 +3,7 @@ const cors = require('cors');
 
 const authRoutes = require('./routes/auth');
 const boardRoutes = require('./routes/boards');
+const { taskRouter } = require('./routes/tasks');
 const { notFound, errorHandler } = require('./middleware/errorHandler');
 
 const app = express();
@@ -16,6 +17,7 @@ app.get('/api/health', function (req, res) {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/boards', boardRoutes);
+app.use('/api/tasks', taskRouter);
 
 app.use(notFound);
 app.use(errorHandler);
