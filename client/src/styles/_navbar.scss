@@ -1,0 +1,36 @@
+.navbar {
+  background: $navy;
+  color: $white;
+  box-shadow: $shadow;
+}
+
+.navbar-inner {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  color: $white;
+  font-size: 18px;
+  font-weight: 600;
+
+  &:hover {
+    text-decoration: none;
+    color: $grey-light;
+  }
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-user {
+  font-size: 14px;
+  color: $grey-light;
+}

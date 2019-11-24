@@ -1,0 +1,52 @@
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: $radius;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  background: $grey-light;
+  color: $text;
+  text-align: center;
+
+  &:hover {
+    text-decoration: none;
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.btn-primary {
+  background: $blue;
+  color: $white;
+
+  &:hover {
+    background: $blue-dark;
+  }
+}
+
+.btn-danger {
+  background: $red;
+  color: $white;
+}
+
+.btn-light {
+  background: $white;
+  color: $text;
+  border: 1px solid $grey;
+}
+
+.btn-small {
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}

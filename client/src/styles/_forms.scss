@@ -1,0 +1,53 @@
+.form-group {
+  margin-bottom: 14px;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    color: $grey-dark;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid $grey;
+    border-radius: $radius;
+    font-size: 14px;
+    font-family: inherit;
+    color: $text;
+    background: $white;
+
+    &:focus {
+      outline: none;
+      border-color: $blue;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 70px;
+  }
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.alert {
+  padding: 10px 12px;
+  border-radius: $radius;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.alert-error {
+  background: $red-bg;
+  color: $red-text;
+  border: 1px solid $red-border;
+}

@@ -33,14 +33,19 @@ a {
   padding: 24px 16px;
 }
 
-.app-header {
-  background: $navy;
-  color: $white;
-  padding: 16px;
-  text-align: center;
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 
-  h1 {
+  h2 {
     margin: 0;
-    font-size: 22px;
   }
+}
+
+.loading {
+  color: $grey-dark;
+  padding: 16px 0;
 }
