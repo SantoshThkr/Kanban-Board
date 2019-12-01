@@ -1,0 +1,89 @@
+.kanban {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.column {
+  background: $column-bg;
+  border-radius: $radius;
+  padding: 12px;
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  h3 {
+    margin: 0;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $grey-dark;
+  }
+}
+
+.column-count {
+  background: $grey;
+  color: $white;
+  border-radius: 10px;
+  padding: 1px 8px;
+  font-size: 12px;
+}
+
+.column-empty {
+  color: $grey;
+  font-size: 13px;
+  text-align: center;
+  padding: 14px 0;
+  margin: 0;
+}
+
+.task-card {
+  background: $white;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  padding: 12px;
+  margin-bottom: 10px;
+
+  &:hover {
+    box-shadow: $shadow-hover;
+  }
+}
+
+.task-card-editing {
+  box-shadow: $shadow-hover;
+}
+
+.task-title {
+  margin: 0 0 6px 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.task-description {
+  margin: 0 0 10px 0;
+  font-size: 13px;
+  color: $grey-dark;
+  white-space: pre-wrap;
+}
+
+.task-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.page-header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+// Stack the columns on small screens
+@media (max-width: 800px) {
+  .kanban {
+    grid-template-columns: 1fr;
+  }
+}
