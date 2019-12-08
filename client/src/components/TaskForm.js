@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { PRIORITIES } from '../constants';
 
 /**
  * Form for creating a new task or editing an existing one.
@@ -7,6 +8,9 @@ function TaskForm({ initialValues, submitLabel, onSubmit, onCancel }) {
   const [title, setTitle] = useState(initialValues ? initialValues.title : '');
   const [description, setDescription] = useState(
     initialValues ? initialValues.description : ''
+  );
+  const [priority, setPriority] = useState(
+    initialValues ? initialValues.priority : 'MEDIUM'
   );
   const [saving, setSaving] = useState(false);
 
@@ -20,11 +24,16 @@ function TaskForm({ initialValues, submitLabel, onSubmit, onCancel }) {
     setSaving(true);
 
     try {
-      await onSubmit({ title: title.trim(), description: description.trim() });
+      await onSubmit({
+        title: title.trim(),
+        description: description.trim(),
+        priority: priority
+      });
 
       if (!initialValues) {
         setTitle('');
         setDescription('');
+        setPriority('MEDIUM');
       }
     } finally {
       setSaving(false);
@@ -57,6 +66,24 @@ function TaskForm({ initialValues, submitLabel, onSubmit, onCancel }) {
           placeholder="Any extra notes"
           maxLength={500}
         />
+      </div>
+
+      <div className="form-group">
+        <label>Priority</label>
+        <select
+          value={priority}
+          onChange={function (e) {
+            setPriority(e.target.value);
+          }}
+        >
+          {PRIORITIES.map(function (value) {
+            return (
+              <option key={value} value={value}>
+                {value}
+              </option>
+            );
+          })}
+        </select>
       </div>
 
       <div className="form-actions">

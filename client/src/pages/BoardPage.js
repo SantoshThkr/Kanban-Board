@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import api, { getErrorMessage } from '../api/axios';
 import Column from '../components/Column';
 import TaskForm from '../components/TaskForm';
-import { COLUMNS } from '../constants';
+import { COLUMNS, byPriority } from '../constants';
 
 function BoardPage() {
   const { id } = useParams();
@@ -84,9 +84,11 @@ function BoardPage() {
   }
 
   function tasksFor(status) {
-    return tasks.filter(function (task) {
-      return task.status === status;
-    });
+    return tasks
+      .filter(function (task) {
+        return task.status === status;
+      })
+      .sort(byPriority);
   }
 
   if (loading) {

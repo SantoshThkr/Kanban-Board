@@ -14,3 +14,10 @@ export function statusLabel(status) {
 
   return column ? column.label : status;
 }
+
+// Used to sort tasks inside a column, most urgent first.
+export const PRIORITY_ORDER = { HIGH: 0, MEDIUM: 1, LOW: 2 };
+
+export function byPriority(a, b) {
+  return PRIORITY_ORDER[a.priority] - PRIORITY_ORDER[b.priority];
+}
